@@ -1,24 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Kaushan+Script');
 html, body, div, applet, object, iframe, h1, h2, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;}
 *:focus{outline:0;}
-html{overflow-y: scroll;}
+html{overflow-y:scroll;}
 body{background: rgba(255,255,255,1);font-family: 'Montserrat', sans-serif;}
 ul{list-style-type: none;}
 a {text-decoration: none;}
-.bar{width:100%;margin: 0 auto;}
-#topbar{position: fixed;top:0;z-index:20;height:50px;background: rgba(255,255,255,1);border-bottom: solid 1px rgba(230,230,230,1);}
-#insidebar{width:1280px;margin: 0 auto;height: 50px;line-height: 50px;}
-#insidebar ul.leftsided{float:left;}
-#insidebar ul.leftsided > li:first-child{padding-left:0px;font-family: 'Kaushan Script', cursive;color:rgba(0,128,0,1);font-size:23px;}
-#insidebar ul li{font-weight:300;float: left;color:rgba(10,10,10,1);font-size: 15px;color: rgba(80,80,80,1);font-size: 14px;}
-#insidebar ul li a{color:rgba(80,80,80,1);}
-#searchbox input[type="text"]{background: rgba(170,170,170,0.1);border: solid 1px rgba(220,220,220,1);color: #777;width: 450px;height: 15px;font-size:14px;padding: 6px 15px 6px 15px;border-right: 0px;border-radius: 2px 0px 0px 2px;-webkit-transition: all 0.15s;transition: all 0.15s;}
-#searchbox input[type="text"]:focus{background: rgba(251,251,251,0.6);}
-#insidebar ul.rightsided{float:right;padding-left:0px;}
-#insidebar ul.rightsided li{margin-left:20px;}
-#insidebar ul.rightsided li a:hover{text-decoration: underline;}
-#crt_chart{display: inline-block;width:85px;height:15px;margin:0px;padding:6px;border:solid 1px rgba(220,220,220,1);background: rgba(255,255,255,1);border-radius: 0px 2px 2px 0px;color: rgb(60,60,60);font-size:12px;line-height:15px;-webkit-transition: all 0.15s;transition: all 0.15s;font-weight:300;text-align: center;}
-#crt_chart:hover{border:solid 1px rgba(120,120,120,1);cursor:pointer;}
+.bar{width:100%;margin:0 auto;text-align:center;margin-top:20px;}
 
 .container{
 	width:1280px;
@@ -27,86 +13,3 @@ a {text-decoration: none;}
 	margin-top:75px;
 	text-align: left;
 }
-
-.layout_left{
-	width:250px; float:left; padding:6px;
-}
-.layout_left ul a li{
-    color:rgba(250,250,250,1);
-	padding-left:5px;
-	padding:8px;
-	margin-left:-5px;
-	font-weight:300;
-	border-radius:1px;
-	font-size:13px;
-	height:15px;
-	cursor:pointer;
-	-webkit-transition: color 0.15s;
-	transition: color 0.15s;
-	line-height:15px;
-}
-
-.container ul.disp li{
-	margin-right:10px;
-	width: 490px;
-    height: 52px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    border-bottom:solid 1px rgba(255,255,255,1);
-    display:inline-block;
-}
-
-
-.container ul.disp li:hover .liTitle{
-	color:#2b87db;
-}
-
-
-.container ul.disp li .liImg{
-	float: left;
-	width: 75px;
-    height: 50px;
-    border:solid 1px rgb(200,200,200);
-    background-size: 75px 50px;
-    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-    filter: grayscale(100%);
-    -webkit-transition: -webkit-filter 0.15s; /* Safari */
-    transition: filter 0.15s;
-}
-.container ul.disp li .liTitle{
-    height: 19px;
-    line-height: 19px;
-    color: #111;
-    font-family:'Montserrat',sans-serif;
-    font-size:14px;
-    font-weight: 700;
-    margin-left: 80px;
-    white-space: nowrap;
-	overflow: hidden;
-    -webkit-transition: color 0.15s; /* Safari */
-    transition: color 0.15s;
-}
-.container ul.disp li .liDesc{
-    height:18px;
-    line-height:18px;
-    font-size: 13px;
-    font-weight: 300;
-    margin-left: 80px;
-    white-space: nowrap;
-	overflow: hidden;
-    -webkit-transition: color 0.15s; /* Safari */
-    transition: color 0.15s;
-}
-.container ul.disp li .liMeta{
-    height:15px;
-    line-height:15px;
-    font-size: 13px;
-    font-weight: 500;
-    margin-left: 80px;
-    color:#2b87db;
-}
-.container ul.disp li .liMeta:first-letter{
-    text-transform:capitalize;
-}
-
