@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Cartographr, the free charts portal</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,500" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arimo:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<link rel="stylesheet" href="/static/css/_jN4WEXYLggl.css" />
+	</head>
+	<body>	
+		<div class="bar" id="topbar">
+			<div id="insidebar">
+				<ul class="leftsided">
+					<li><a href="/" style="color:#2b87db;">Cartographr</a></li>
+					<li style="margin-left:40px;">
+						<form id="searchbox" action="">
+   							<input id="search" type="text" placeholder="Search for charts, people and topics">
+						</form>
+					</li>
+					<li>
+						<a href="/chart" class="button" id="crt_chart">Create Chart</a>
+					</li>
+
+				</ul>
+				<ul class="rightsided">
+					<li><a id="signer" href="/login">Sign In</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+		<div class="layout_left">
+			<span style="font-weight:300;">Feeds</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<div style="margin-top:10px;">
+			<ul>
+				<a href="/"><li style="background:#2b87db;color:#FFF;">Home</li></a>
+				<a href="/top-charts"><li>Top Charts</li></a>
+				<a href="/your-charts"><li>Your Charts</li></a>
+			</ul>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<span style="font-weight:500;font-size:13px;color:#2680d6;">BEST OF CARTOGRAPHR</span>
+			<ul style="margin-top:10px;">
+				<a href="/topic/agriculture"><li>Agriculture</li></a>
+				<a href="/topic/chemicals-resources"><li>Chemicals & Resources</li></a>
+				<a href="/topic/construction"><li>Construction</li></a>
+				<a href="/topic/consumer-goods-fmcg"><li>Consumer Goods & FMCG</li></a>
+				<a href="/topic/ecommerce"><li>E-Commerce</li></a>
+				<a href="/topic/energy-environment"><li>Energy & Environment</li></a>
+				<a href="/topic/finance"><li>Finance</li></a>
+				<a href="/topic/insurance-real-estate"><li>Insurance & Real Estate</li></a>
+				<a href="/topic/health"><li>Health</li></a>
+				<a href="/topic/internet"><li>Internet</li></a>
+				<a href="/topic/life"><li>Life</li></a>
+				<a href="/topic/media-advertisements"><li>Media & Advertisements</li></a>
+				<a href="/topic/metals"><li>Metals</li></a>
+				<a href="/topic/electronics"><li>Electronics</li></a>
+				<a href="/topic/travel-tourism"><li>Travel & Tourism</li></a>
+				<a href="/topic/hospitality"><li>Hospitality</li></a>
+				<a href="/topic/technology-Telecom"><li>Technology & Telecom</li></a>
+				<hr style="border:0;height:1px;background:#DDD;">
+				<a href="/topic/chloropleth"><li>Chloropleth</li></a>
+			</ul>
+		</div></div>
+		<div style="width:1000px; height:500px; float:left; padding:6px;left:270px;">
+			<span style="font-weight: 300;">Top Charts for You</span>
+			<hr style="border:0;height:1px;background:#DDD;">
+			<ul class="disp">
+			</ul>
+			</div>
+		</div>
+		<div id="blackpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;"></div>
+		<div id="blurpan" style="width:100%;height:100vh;position:fixed;top:0px;background:rgb(0,0,0);display:none;opacity:0;z-index:200;">
+			<div class="container" style="width:650px; margin:0 auto; text-align:center;margin-top:70px;">
+			<br>
+			<div class="inside" style="border:solid 1px #BBBBBB; padding:30px;height:200px;">
+			<div>
+		      <a href="/googlelogin"><div style="width:270px;height:45px;background:#dd4b39;margin:0 auto;line-height:45px;color:white;border-radius:2px;cursor:pointer;"><img src="/static/img/essential2/gplus.svg" height="30" style="filter:invert(100%);vertical-align:middle;margin-right:40px;">Sign In with Google</div></a>
+		      <div style="width:270px;height:45px;background:#3b5998;margin:0 auto;line-height:45px;color:white;border-radius:2px;cursor:pointer;"><img src="/static/img/essential2/fb.svg" height="30" style="filter:invert(100%);vertical-align:middle;margin-right:30px;">Sign In with Facebook</div>
+      </div>
+		</div>
+		<script type="text/javascript" src="/static/js/jquery.min.js"></script>
+		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+		<script type="text/javascript">var allCharts = myFunc({{charts|tojson}}); var user_data = myFunc({{user|tojson}});</script>
+		<script type="text/javascript" src="/static/js/main.js"></script>
+	</body>
+</html>
