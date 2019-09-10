@@ -2,3 +2,5 @@ all_sensitive_data.json
 ._webgl_pcd_load.html
 _config.yml
 js/._hanowa.main-1.0.js
+.*
+!/.gitignore
