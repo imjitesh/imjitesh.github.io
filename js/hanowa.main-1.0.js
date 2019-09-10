@@ -47,8 +47,9 @@ import * as THREE from '/build/three.module.js';
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
 
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
+//				container = document.createElement( 'div' );
+				container = document.getElementById("intro");
+//				document.body.appendChild( container );
 				container.appendChild( renderer.domElement );
 
 				controls = new OrbitControls( camera, renderer.domElement );
@@ -69,8 +70,8 @@ import * as THREE from '/build/three.module.js';
 				//controls.autoRotate = true;
 				// world
 
-				stats = new Stats();
-				container.appendChild( stats.dom );
+				//stats = new Stats();
+				//container.appendChild( stats.dom );
 
 				window.addEventListener( 'resize', onWindowResize, false );
 
@@ -161,7 +162,7 @@ import * as THREE from '/build/three.module.js';
 				requestAnimationFrame( animate );
 				controls.update();
 				renderer.render( scene, camera );
-				stats.update();
+				//stats.update();
 			}
 
 			function pcdLoader(pcdFiles){
