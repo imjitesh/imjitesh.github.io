@@ -1,7 +1,7 @@
-import * as THREE from './build/three.module.js';
-			import Stats from './examples/jsm/libs/stats.module.js';
-			import { OrbitControls } from './examples/jsm/controls/OrbitControls.js';
-			import { PCDLoader } from './examples/jsm/loaders/PCDLoader.js';
+import * as THREE from '/build/three.module.js';
+			import Stats from '/examples/jsm/libs/stats.module.js';
+			import { OrbitControls } from '/examples/jsm/controls/OrbitControls.js';
+			import { PCDLoader } from '/examples/jsm/loaders/PCDLoader.js';
 			var container, stats;
 			var camera, camera2, controls, scene, renderer, parentScene;
 			var boxes = [];
