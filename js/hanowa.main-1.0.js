@@ -303,7 +303,7 @@ function init() {
                 cube.visible = false;
             }
             scene.add(cube);
-            cube.name = "cube" + frame.frame_id;
+            cube.name = "box" + frame.frame_id;
             cube.position.x = box.center.x;
             cube.position.y = box.center.y;
             cube.position.z = box.center.z;
