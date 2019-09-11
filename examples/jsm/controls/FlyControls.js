@@ -194,6 +194,8 @@ var FlyControls = function ( object, domElement ) {
 		// expose the rotation vector for convenience
 		this.object.rotation.setFromQuaternion( this.object.quaternion, this.object.rotation.order );
 
+		console.log(this.object.position);
+
 
 	};
 

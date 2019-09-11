@@ -46,9 +46,8 @@ function init() {
     camera = new THREE.PerspectiveCamera(25, window.innerWidth / window.innerHeight, 0.01, 8000);
 
     //camera.up.set(0, 0, 1);
-    camera.position.set(0, 0, 0);
-    camera.rotation.set(0,-Math.PI/2,-Math.PI/2);
-    console.log()
+    camera.position.set(-54, 0, 19);
+    camera.rotation.set(0, -Math.PI / 2.5, -Math.PI / 2);
 
     scene.add(camera);
     var axesHelper = new THREE.AxesHelper(1);
@@ -61,16 +60,15 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    //				container = document.createElement( 'div' );
     container = document.getElementById("intro");
-    //				document.body.appendChild( container );
+
     container.appendChild(renderer.domElement);
 
-    controls = new FlyControls(camera, renderer.domElement);
+    /*controls = new FlyControls(camera, renderer.domElement);
     controls.movementSpeed = 0.3;
     controls.rollSpeed = Math.PI / 720;
     controls.autoForward = false;
-    controls.dragToLook = false;
+    controls.dragToLook = false;*/
 
     /*controls = new OrbitControls(camera, renderer.domElement);
 
@@ -143,17 +141,24 @@ function onWindowResize() {
 
 function keyboard(ev) {
 
-    var points = scene.getObjectByName('5');
+    var points = scene.getObjectByName(currentFrame);
     switch (ev.key || String.fromCharCode(ev.keyCode || ev.charCode)) {
 
         case ']':
-            points.material.size *= 1.1;
-            points.material.needsUpdate = true;
+            for (var i = 0; i < pcdFiles.length; i++) {
+                points = scene.getObjectByName(i);
+                points.material.size *= 1.1;
+                points.material.needsUpdate = true;
+            }
+
             break;
 
         case '[':
-            points.material.size /= 1.1;
-            points.material.needsUpdate = true;
+            for (var i = 0; i < pcdFiles.length; i++) {
+                points = scene.getObjectByName(i);
+                points.material.size /= 1.1;
+                points.material.needsUpdate = true;
+            }
             break;
 
         case 16:
@@ -201,7 +206,7 @@ function keyboard(ev) {
 
 function animate() {
     requestAnimationFrame(animate);
-    controls.update(1);
+    //controls.update(1);
     renderer.render(scene, camera);
     //stats.update();
 }
