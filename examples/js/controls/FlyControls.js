@@ -99,7 +99,7 @@ THREE.FlyControls = function ( object, domElement ) {
 
 	};
 
-	this.mousedown = function ( event ) {
+	/*this.mousedown = function ( event ) {
 
 		if ( this.domElement !== document ) {
 
@@ -172,7 +172,7 @@ THREE.FlyControls = function ( object, domElement ) {
 
 		this.updateRotationVector();
 
-	};
+	};*/
 
 	this.update = function ( delta ) {
 
