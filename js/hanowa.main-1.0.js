@@ -363,14 +363,14 @@ function keyboard(ev) {
 
                 scene.getObjectByName(currentFrame).visible = false;
                 scene.children.forEach(function(cube) {
-                    if (cube.name == 'cube' + currentFrame) {
+                    if (cube.name == 'box' + currentFrame) {
                         cube.visible = false;
                     }
                 })
                 currentFrame += 1;
                 scene.getObjectByName(currentFrame).visible = true;
                 scene.children.forEach(function(cube) {
-                    if (cube.name == 'cube' + currentFrame) {
+                    if (cube.name == 'box' + currentFrame) {
                         cube.visible = true;
                     }
                 })
@@ -381,14 +381,14 @@ function keyboard(ev) {
             if (!(typeof scene === 'undefined') && currentFrame >= 1) {
                 scene.getObjectByName(currentFrame).visible = false;
                 scene.children.forEach(function(cube) {
-                    if (cube.name == 'cube' + currentFrame) {
+                    if (cube.name == 'box' + currentFrame) {
                         cube.visible = false;
                     }
                 })
                 currentFrame -= 1;
                 scene.getObjectByName(currentFrame).visible = true;
                 scene.children.forEach(function(cube) {
-                    if (cube.name == 'cube' + currentFrame) {
+                    if (cube.name == 'box' + currentFrame) {
                         cube.visible = true;
                     }
                 })
