@@ -18,60 +18,6 @@ var container, stats;
 var camera, controls, scene, renderer, parentScene;
 var boxes = [];
 var currentFrame = 0;
-var lidarLabelUrl = 'https://s3-ap-south-1.amazonaws.com/scalar-prod/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar_labels/segment-1208303279778032257_1360_000_1380_000_lidar_labels.json';
-
-let pcdFiles = [
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000000.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000001.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000002.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000003.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000004.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000005.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000006.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000007.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000008.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000009.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000010.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000011.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000012.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000013.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000014.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000015.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000016.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000017.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000018.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000019.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000020.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000021.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000022.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000023.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000024.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000025.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000026.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000027.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000028.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000029.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000030.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000031.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000032.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000033.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000034.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000035.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000036.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000037.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000038.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000039.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000040.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000041.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000042.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000043.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000044.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000045.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000046.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000047.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000048.bin',
-  'https://scalar-prod.s3.ap-south-1.amazonaws.com/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar/frame_00000049.bin'
-]
 
 init();
 animate();
@@ -206,7 +152,7 @@ function keyboard(ev) {
 
     case '=':
       if (!(typeof scene === 'undefined') && currentFrame < pcdFiles.length - 1) {
-
+        make_base("https://media.istockphoto.com/photos/asphalt-road-and-mountains-with-foggy-landscape-at-sunset-picture-id905369402?k=6&m=905369402&s=612x612&w=0&h=utdI0u1_BMe5h8SxAObpJheFnVkdhvVxoLic_VBvj5g=");
         scene.getObjectByName(currentFrame).visible = false;
         scene.children.forEach(function(cube) {
           if (cube.name == 'box' + currentFrame) {
@@ -228,6 +174,7 @@ function keyboard(ev) {
 
     case '-':
       if (!(typeof scene === 'undefined') && currentFrame >= 1) {
+        make_base('https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
         scene.getObjectByName(currentFrame).visible = false;
         scene.children.forEach(function(cube) {
           if (cube.name == 'box' + currentFrame) {
