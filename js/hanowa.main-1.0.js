@@ -143,20 +143,12 @@ function init() {
     boxes = JSON.parse(response);
     boxes.forEach(function(frame) {
       frame['boxes'].forEach(function(box) {
-        var geometry = new THREE.BoxGeometry(box.dimensions.length, box.dimensions.width, box.dimensions.height);
-        //var tempColor = box.color.split('(')[1].split(')')[0].split(',');
-        var tempColor = [10, 234, 123];
-        var cubeColor = parseInt(tempColor[2]) * 65536 + parseInt(tempColor[1]) * 256 + parseInt(tempColor[0]);
-        var material = new THREE.MeshBasicMaterial({
-          color: cubeColor,
-          transparent: true,
-          opacity: 0.2
-        });
-        var cube = new THREE.Mesh(geometry, material);
+        let cube = new THREE.LineSegments( new THREE.EdgesGeometry( new THREE.BoxBufferGeometry( box.dimensions.length, box.dimensions.width, box.dimensions.height) ), new THREE.LineBasicMaterial( { color: 0xffff00 } ) );
         if (frame.frame_id != currentFrame) {
           cube.visible = false;
         }
         scene.add(cube);
+        //scene.add(line);
         cube.name = "box" + frame.frame_id;
         cube.position.x = box.center.x;
         cube.position.y = box.center.y;
