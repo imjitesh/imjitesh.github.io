@@ -41,8 +41,14 @@
 			td a{
 				color:black;
 				font-size:13px;
+				text-decoration:none;
 			}
 			td a:hover{
+				color:#133345;
+				font-size:13px;
+				text-decoration:none;
+			}
+			td a:active{
 				color:#133345;
 				font-size:13px;
 				text-decoration:none;
@@ -63,53 +69,61 @@
 		<div class="row" style="margin-bottom:30px;">
 			<div class="col-md-1"></div>
 			<div class="col-md-4">
-				<h2>Deep learning datasets view</h2>
+				<h2>Overview: Waymo Open Dataset</h2>
 			</div>
 			<div class="col-md-7"></div>
 		</div>
 		<div class="row" style="margin-bottom:30px;">
 			<div class="col-md-1"></div>
 			<div class="col-md-5">
-				<p>The Waymo Open Dataset currently contains lidar and camera data from 1,000 segments (20s each). We plan to continuously grow this dataset.<br>
-					Email me at <b>jitesh.bits@gmail.com</b> with questions, suggestions and ideas.<br>
-				You can subscribe to get updates when new datasets and tools are released.</p>
+				<p>The Waymo Open Dataset currently contains lidar and camera data from 1,000 segments (20s each). 1,000 segments of 20s each, collected at 10Hz (200,000 frames) in diverse geographies and conditions.
+					<br><br>
+					Sensor data. Labeled data</p>
 			</div>
 			<div class="col-md-6"></div>
 		</div>
 		<div class="row" style="margin-bottom:30px;">
 			<div class="col-md-1"></div>
-			<div class="col-md-8">
+			<div class="col-md-10">
 				<table class="table">
 					<thead>
 						<tr>
-							<th>NAME</th>
-							<th>YEAR</th>
-							<th>DESCRIPTION</th>
-							<th>LICENSE</th>
-							<th>PAPER</th>
+							<th>SCENE NAME</th>
+							<th>TOTAL FRAMES</th>
+							<th>TOTAL LABELS</th>
+							<th>SCENE TYPE</th>
+							<th>RANGE [0m,35m)</th>
+							<th>RANGE [35m,50m)</th>
+							<th>RANGE [35m,+INF)</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<td><a href="waymo-overview.html" style="font-weight:800;">Waymo Open Dataset</a></td>
-							<td>2019</td>
-							<td>To be added soon...</td>
-							<td>Non-Commercial</td>
-							<td>icon</td>
+							<td><a href="open_data/waymo/segment-1208303279778032257/#" target="blank" style="font-weight:800;">segment-1208303279778032257</a></td>
+							<td>198</td>
+							<td>3960</td>
+							<td>Suburban</td>
+							<td>1980</td>
+							<td>792</td>
+							<td>1188</td>
 						</tr>
 						<tr>
-							<td><a href="#" style="font-weight:800;">Lyft Level 5</a></td>
-							<td>2019</td>
-							<td>To be added soon...</td>
-							<td>CC-BY-NC-SA 4.0</td>
-							<td>icon</td>
+							<td><a href="waymo/segment-1208303279778032257.html" style="font-weight:800;">segment-1208303279778032257</a></td>
+							<td>196</td>
+							<td>3940</td>
+							<td>Downtown</td>
+							<td>1980</td>
+							<td>792</td>
+							<td>1188</td>
 						</tr>
 						<tr>
-							<td><a href="#" style="font-weight:800;">Argoverse</a></td>
-							<td>2019</td>
-							<td>To be added soon...</td>
-							<td>CC-BY-NC-SA 4.0</td>
-							<td>icon</td>
+							<td><a href="waymo/segment-1208303279778032257.html" style="font-weight:800;">segment-1208303279778032257</a></td>
+							<td>196</td>
+							<td>3940</td>
+							<td>Downtown</td>
+							<td>1980</td>
+							<td>792</td>
+							<td>1188</td>
 						</tr>
 					</tbody>
 				</table>
