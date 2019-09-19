@@ -59,6 +59,9 @@
 			tr th:not(:first-child){
 				text-align:center;
 			}
+			tr th{
+				font-size:14px;
+			}
 		</style>
 	</head>
 	<body style="margin:0; padding:0">
@@ -93,26 +96,31 @@
 					<thead>
 						<tr>
 							<th>SCENE NAME</th>
-							<th style="text-align:center;">TOTAL FRAMES</th>
+							<th>OVERVIEW</th>
+							<th>TOTAL FRAMES</th>
 							<th>TOTAL LABELS</th>
 							<th>SCENE TYPE</th>
 							<th>RANGE [0m,35m)</th>
 							<th>RANGE [35m,50m)</th>
 							<th>RANGE [35m,+INF)</th>
+
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><a href="/open_data/waymo-od/segment-1208303279778032257" target="blank" style="font-weight:800;">segment-1208303279778032257</a></td>
+							<th><a href="/open_data/waymo-od/segment-1208303279778032257/overview.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></th>
 							<td>198</td>
 							<td>7,648</td>
 							<td>Suburban</td>
 							<td>1980</td>
 							<td>792</td>
 							<td>1188</td>
+
 						</tr>
 						<tr>
 							<td><a href="/open_data/waymo-od/segment-10206293520369375008/" target="blank" style="font-weight:800;">segment-10206293520369375008</a></td>
+							<th><a href="/open_data/waymo-od/segment-10206293520369375008/overview.html"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></a></th>
 							<td>199</td>
 							<td>2,883</td>
 							<td>Downtown</td>
@@ -122,12 +130,14 @@
 						</tr>
 						<tr>
 							<td><a href="/open_data/waymo/segment-1208303279778032257/" style="font-weight:800;">segment-1208303279778032257</a></td>
+							<th><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span></th>
 							<td>196</td>
 							<td>3940</td>
 							<td>Downtown</td>
 							<td>1980</td>
 							<td>792</td>
 							<td>1188</td>
+
 						</tr>
 					</tbody>
 				</table>
