@@ -91,8 +91,8 @@
 			color: #668866;
 		}
 		#mapid {
-			height: 600px;
-			width:85.75%;
+			height: 500px;
+			width:100%;
 			background-color: rgb(250, 250, 250);
 		}
 	</style>
@@ -144,19 +144,31 @@
 	  var allContinent = d3.map(data, function(d){return(d.type)}).keys()
 		var color = function(energy_type){
 			if(energy_type === 'Nuclear'){
-				return "#FFA500";
-			}
-			if(energy_type === 'Coal'){
 				return "#FF0000";
 			}
+			if(energy_type === 'Coal'){
+				return "#0FF000";
+			}
 			if(energy_type === 'Hydro'){
-				return "#0000FF";
+				return "#00FF00";
 			}
 			if(energy_type === 'Solar'){
-				return "#FFFF00";
+				return "#000FF0";
 			}
 			if(energy_type === 'Wind'){
-				return "#00FFFF";
+				return "#0000FF";
+			}
+			if(energy_type === 'Gas'){
+				return "#F0F000";
+			}
+			if(energy_type === 'Biomass'){
+				return "#0F0F00";
+			}
+			if(energy_type === 'Oil'){
+				return "#00F0F0";
+			}
+			if(energy_type === 'Geothermal'){
+				return "#000F0F";
 			}
 		}
 
@@ -168,7 +180,7 @@
 	  var valueExtent = d3.extent(data, function(d) { return +d.n; })
 	  var size = d3.scaleSqrt()
 	    .domain(valueExtent)  // What's in the data
-	    .range([5, 25])  // Size in pixel
+	    .range([5, 15])  // Size in pixel
 
 	  // Draw the map
 	  svg.append("g")
@@ -187,7 +199,8 @@
 	  // Add circles:
 	  svg
 	    .selectAll("myCircles")
-	    .data(data.sort(function(a,b) { return +b.n - +a.n }).filter(function(d,i){ return i<30 }))
+	    .data(data.sort(function(a,b) { return +b.n - +a.n }).filter(function(d,i){ return i>0 })
+		)
 	    .enter()
 	    .append("circle")
 	      .attr("cx", function(d){ return projection([+d.homelon, +d.homelat])[0] })
@@ -197,7 +210,7 @@
 	      //.attr("stroke", function(d){ if(d.n>2000){return "black"}else{return "none"}  })
 				.attr("stroke","none")
 	      .attr("stroke-width", 1)
-	      .attr("fill-opacity", 0.5)
+	      .attr("fill-opacity", 0.3)
 
 
 
