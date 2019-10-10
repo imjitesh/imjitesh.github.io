@@ -1,99 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Hivemind - View ML Public Datasets</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-		<!-- jQuery library -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<!-- Latest compiled JavaScript -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-		<style type="text/css">
-			ul.navbar-nav li a{
-				height:64px;
-				line-height:32px;
-			}
-			.navbar-header a{
-				height:64px;
-				line-height:32px;
-				color:#FFFFFF;
-			}
-			*{
-				font-size:15px;
-				margin:0;
-				text-decoration:none;
-			}
-			br{
-				line-height:27px;
-			}
-			body{
-				background-color: rgb(250,250,250)
-			}
-			tbody tr{
-				background-color:white;
-			}
-			td {
-				color:black;
-				font-size:13px;
-			}
-			td a{
-				color:black;
-				font-size:13px;
-				text-decoration:none;
-			}
-			td a:hover{
-				color:#133345;
-				font-size:13px;
-				text-decoration:none;
-			}
-			td a:active{
-				color:#133345;
-				font-size:13px;
-				text-decoration:none;
-			}
-			tr td:not(:first-child){
-				text-align:center;
-			}
-			tr th:not(:first-child){
-				text-align:center;
-			}
-			tr th{
-				font-size:14px;
-			}
-		</style>
-	</head>
-	<body style="margin:0; padding:0">
-		<div class="bar" style="height:4px; width:100%; background-color:#133345;margin-bottom:50px"></div>
-		<div class="row" style="margin-bottom:30px;">
-			<div class="col-md-1"></div>
-			<div class="col-md-2">
-				<a href="/open_data/waymo-od/"><div style="width:72px;height:24px;background:#133345;color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go back</div></a>
-			</div>
-			<div class="col-md-9"></div>
+
+<head>
+	<title>Hivemind - View ML Public Datasets</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<!-- Load c3.css -->
+	<link href="https://c3js.org/css/c3-eb4b9be8.css" rel="stylesheet">
+
+	<!-- Load d3.js and c3.js -->
+	<script src="https://c3js.org/js/d3-5.8.2.min-c5268e33.js" charset="utf-8"></script>
+	<script src="https://c3js.org/js/c3.min-178df77c.js"></script>
+	<script src="/js/RadarChart.js" charset="utf-8"></script>
+	<style type="text/css">
+		ul.navbar-nav li a {
+			height: 64px;
+			line-height: 32px;
+		}
+
+		.navbar-header a {
+			height: 64px;
+			line-height: 32px;
+			color: #FFFFFF;
+		}
+
+		* {
+			font-size: 15px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		br {
+			line-height: 27px;
+		}
+
+		body {
+			background-color: rgb(255, 255, 255);
+		}
+
+		tbody tr {
+			background-color: white;
+		}
+
+		td {
+			color: black;
+			font-size: 13px;
+		}
+
+		td a {
+			color: black;
+			font-size: 13px;
+			text-decoration: none;
+		}
+
+		td a:hover {
+			color: #133345;
+			font-size: 13px;
+			text-decoration: none;
+		}
+
+		td a:active {
+			color: #133345;
+			font-size: 13px;
+			text-decoration: none;
+		}
+
+		tr td:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th {
+			font-size: 14px;
+		}
+	</style>
+</head>
+<script>
+var lidarLabelUrl = "https://s3-ap-south-1.amazonaws.com/scalar-prod/public/waymo/segment-1208303279778032257_1360_000_1380_000/lidar_labels/segment-1208303279778032257_1360_000_1380_000_lidar_labels.json";
+</script>
+<script type="module" src="/js/hanowa-chart-1.0.js"></script>
+<body style="margin:0; padding:0">
+	<div class="bar" style="height:0px; width:100%; background-color:#133345;margin-bottom:50px"></div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<a href="/ml-dataset-viewer/open_data/waymo-od">
+				<div style="width:72px;height:24px;background:#133345;color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div>
+			</a>
 		</div>
-		<div class="row" style="margin-bottom:30px;">
-			<div class="col-md-1"></div>
-			<div class="col-md-7">
-				<h2>segment-1208303279778032257</h2>
-			</div>
-			<div class="col-md-4"></div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h2>segment-1208303279778032257</h2>
 		</div>
-		<div class="row" style="margin-bottom:30px;">
-			<div class="col-md-1"></div>
-			<div class="col-md-5">
-				<p>The Waymo Open Dataset currently contains lidar and camera data from 1,000 segments (20s each). 1,000 segments of 20s each, collected at 10Hz (200,000 frames) in diverse geographies and conditions.
-					<br><br>
-					Sensor data. Labeled data</p>
-			</div>
-			<div class="col-md-6"></div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<h3>Distance</h3>
+			<p>The histograms below show the distributions of distance of objects.
+				Distances between objects and ego car are computed to plot the first two histograms.
+				Note that majority of the objects are within the range of distance 0-50m.</p>
 		</div>
-		<div class="row" style="margin-bottom:30px;">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">
-			</div>
-			<div class="col-md-1"></div>
+		<div class="col-md-1"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-1"></div>
+		<div class="col-md-5" style="text-align:center;">
+			<div id="distance"></div>
+			<p>Fig. Distribution of objects</p>
 		</div>
-	</body>
+		<div class="col-md-5">
+			<div id="cumulative-distance"></div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</body>
+
 </html>
