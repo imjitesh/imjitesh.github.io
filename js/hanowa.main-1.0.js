@@ -23,7 +23,7 @@ init();
 animate();
 
 function init() {
-  pcdLoader(pcdFiles);
+  pcdLoader(sensorData);
 
   parentScene = new THREE.Scene();
   parentScene.background = new THREE.Color(0x000000);
@@ -130,7 +130,7 @@ function keyboard(ev) {
   switch (ev.key || String.fromCharCode(ev.keyCode || ev.charCode)) {
 
     case ']':
-      for (var i = 0; i < pcdFiles.length; i++) {
+      for (var i = 0; i < sensorData.length; i++) {
         points = scene.getObjectByName(i);
         points.material.size *= 1.1;
         points.material.needsUpdate = true;
@@ -139,7 +139,7 @@ function keyboard(ev) {
       break;
 
     case '[':
-      for (var i = 0; i < pcdFiles.length; i++) {
+      for (var i = 0; i < sensorData.length; i++) {
         points = scene.getObjectByName(i);
         points.material.size /= 1.1;
         points.material.needsUpdate = true;
@@ -151,8 +151,8 @@ function keyboard(ev) {
       break;
 
     case '=':
-      if (!(typeof scene === 'undefined') && currentFrame < pcdFiles.length - 1) {
-        make_base("https://media.istockphoto.com/photos/asphalt-road-and-mountains-with-foggy-landscape-at-sunset-picture-id905369402?k=6&m=905369402&s=612x612&w=0&h=utdI0u1_BMe5h8SxAObpJheFnVkdhvVxoLic_VBvj5g=");
+      if (!(typeof scene === 'undefined') && currentFrame < sensorData.length - 1) {
+        loadImage("https://media.istockphoto.com/photos/asphalt-road-and-mountains-with-foggy-landscape-at-sunset-picture-id905369402?k=6&m=905369402&s=612x612&w=0&h=utdI0u1_BMe5h8SxAObpJheFnVkdhvVxoLic_VBvj5g=");
         scene.getObjectByName(currentFrame).visible = false;
         scene.children.forEach(function(cube) {
           if (cube.name == 'box' + currentFrame) {
@@ -160,9 +160,9 @@ function keyboard(ev) {
           }
         })
         currentFrame += 1;
-        document.getElementById("cur-frame-bar").setAttribute("aria-valuenow", (currentFrame+1)/(pcdFiles.length)*100);
-        document.getElementById("cur-frame-bar").style.width = (currentFrame+1)/(pcdFiles.length)*100 + "%";
-        document.getElementById("frame-info").innerHTML = (currentFrame+1) + " / " + pcdFiles.length;
+        document.getElementById("cur-frame-bar").setAttribute("aria-valuenow", (currentFrame+1)/(sensorData.length)*100);
+        document.getElementById("cur-frame-bar").style.width = (currentFrame+1)/(sensorData.length)*100 + "%";
+        document.getElementById("frame-info").innerHTML = (currentFrame+1) + " / " + sensorData.length;
         scene.getObjectByName(currentFrame).visible = true;
         scene.children.forEach(function(cube) {
           if (cube.name == 'box' + currentFrame) {
@@ -174,7 +174,7 @@ function keyboard(ev) {
 
     case '-':
       if (!(typeof scene === 'undefined') && currentFrame >= 1) {
-        make_base('https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
+        loadImage('https://images.unsplash.com/photo-1494783367193-149034c05e8f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80');
         scene.getObjectByName(currentFrame).visible = false;
         scene.children.forEach(function(cube) {
           if (cube.name == 'box' + currentFrame) {
@@ -182,9 +182,9 @@ function keyboard(ev) {
           }
         })
         currentFrame -= 1;
-        document.getElementById("cur-frame-bar").setAttribute("aria-valuenow", (currentFrame+1)/(pcdFiles.length)*100);
-        document.getElementById("cur-frame-bar").style.width = (currentFrame+1)/(pcdFiles.length)*100 + "%";
-        document.getElementById("frame-info").innerHTML = (currentFrame+1) + " / " + pcdFiles.length;
+        document.getElementById("cur-frame-bar").setAttribute("aria-valuenow", (currentFrame+1)/(sensorData.length)*100);
+        document.getElementById("cur-frame-bar").style.width = (currentFrame+1)/(sensorData.length)*100 + "%";
+        document.getElementById("frame-info").innerHTML = (currentFrame+1) + " / " + sensorData.length;
         scene.getObjectByName(currentFrame).visible = true;
         scene.children.forEach(function(cube) {
           if (cube.name == 'box' + currentFrame) {
@@ -203,14 +203,14 @@ function animate() {
   //stats.update();
 }
 
-function pcdLoader(pcdFiles) {
+function pcdLoader(sensorData) {
   var loader = new PCDLoader();
-  document.getElementById("frame-info").innerHTML = (currentFrame+1) + " / " + pcdFiles.length;
-  document.getElementById("cur-frame-bar").setAttribute("aria-valuenow", (currentFrame+1)/(pcdFiles.length)*100);
-  document.getElementById("cur-frame-bar").style.width = (currentFrame+1)/(pcdFiles.length)*100 + "%";
+  document.getElementById("frame-info").innerHTML = (currentFrame+1) + " / " + sensorData.length;
+  document.getElementById("cur-frame-bar").setAttribute("aria-valuenow", (currentFrame+1)/(sensorData.length)*100);
+  document.getElementById("cur-frame-bar").style.width = (currentFrame+1)/(sensorData.length)*100 + "%";
   var loadCounter = 0;
-  pcdFiles.forEach(function(pcdFile, idx) {
-    loader.load(pcdFile, function(points) {
+  sensorData.forEach(function(frame, idx) {
+    loader.load(frame['lidar'], function(points) {
       points.material.color.setHex(16777215);
       points.material.size = 0.2;
       points.name = idx;
@@ -218,9 +218,9 @@ function pcdLoader(pcdFiles) {
         points.visible = false;
       }
       loadCounter += 1;
-      console.log((loadCounter)/(pcdFiles.length)*100 + "%");
-      document.getElementById("load-frame-bar").setAttribute("aria-valuenow", (loadCounter)/(pcdFiles.length)*100);
-      document.getElementById("load-frame-bar").style.width = (loadCounter)/(pcdFiles.length)*100 + "%";
+      console.log((loadCounter)/(sensorData.length)*100 + "%");
+      document.getElementById("load-frame-bar").setAttribute("aria-valuenow", (loadCounter)/(sensorData.length)*100);
+      document.getElementById("load-frame-bar").style.width = (loadCounter)/(sensorData.length)*100 + "%";
       scene.add(points);
     });
   })
