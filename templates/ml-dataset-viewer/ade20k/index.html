@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hivemind - View Publicly Accessible 3D Point Clouds</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul.navbar-nav li a {
+			height: 64px;
+			line-height: 32px;
+		}
+
+		.navbar-header a {
+			height: 64px;
+			line-height: 32px;
+			color: #FFFFFF;
+		}
+
+		* {
+			font-size: 15px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		br {
+			line-height: 27px;
+		}
+
+		body {
+			background-color: rgb(250, 250, 255)
+		}
+
+		tbody tr {
+			background-color: white;
+		}
+
+		td {
+			color: black;
+			font-size: 13px;
+			background: #FFFFFF;
+		}
+
+		td a {
+			color: black;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		td a:hover {
+			color: #133345;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		td a:active {
+			color: #133345;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		tr td:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th {
+			font-size: 12px;
+		}
+	</style>
+</head>
+
+<body style="margin:0; padding:0">
+	<div class="bar" style="height:0px; width:100%; background-color:rgb(15, 20, 20);margin-bottom:50px"></div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<a href="/ml-dataset-viewer">
+				<div style="width:72px;height:24px;background:rgb(15, 20, 20);color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div>
+			</a>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:20px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h1 style="margin-bottom:0px;">ADE 20K</h1>
+			<p>Machine learning dataset viewer</p>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<p>A dataset for scene parsing. There are 20,210 images in the training set, 2,000 images in the validation set, and 3,000 images in the testing set. All the images are exhaustively annotated with objects. Many objects are also annotated with
+				their parts. For each object there is additional information about whether it is occluded or cropped, and other attributes.
+				<br><br>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>SCENE NAME</th>
+						<th>OVERVIEW</th>
+						<th>TOTAL IMAGES</th>
+						<th>TOTAL INSTANCES</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href='training-a' target='blank' style='font-weight:800;'>training-a</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>882</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-b' target='blank' style='font-weight:800;'>training-b</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>3046</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-c' target='blank' style='font-weight:800;'>training-c</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>1217</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-d' target='blank' style='font-weight:800;'>training-d</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>746</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-e' target='blank' style='font-weight:800;'>training-e</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>105</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-f' target='blank' style='font-weight:800;'>training-f</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>268</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-g' target='blank' style='font-weight:800;'>training-g</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>299</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-h' target='blank' style='font-weight:800;'>training-h</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>875</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-i' target='blank' style='font-weight:800;'>training-i</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>99</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-j' target='blank' style='font-weight:800;'>training-j</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>81</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-k' target='blank' style='font-weight:800;'>training-k</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>700</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-l' target='blank' style='font-weight:800;'>training-l</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>995</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-m' target='blank' style='font-weight:800;'>training-m</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>476</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-n' target='blank' style='font-weight:800;'>training-n</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>104</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-o' target='blank' style='font-weight:800;'>training-o</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>240</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-outliers' target='blank' style='font-weight:800;'>training-outliers</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>718</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-p' target='blank' style='font-weight:800;'>training-p</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>493</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-q' target='blank' style='font-weight:800;'>training-q</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>13</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-r' target='blank' style='font-weight:800;'>training-r</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>386</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-s' target='blank' style='font-weight:800;'>training-s</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>2872</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-t' target='blank' style='font-weight:800;'>training-t</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>201</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-u' target='blank' style='font-weight:800;'>training-u</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>30</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-v' target='blank' style='font-weight:800;'>training-v</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>148</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-w' target='blank' style='font-weight:800;'>training-w</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>335</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-y' target='blank' style='font-weight:800;'>training-y</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>66</td>
+						<td>TBC</td>
+					</tr>
+					<tr>
+						<td><a href='training-z' target='blank' style='font-weight:800;'>training-z</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>22</td>
+						<td>TBC</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</body>
+
+</html>
