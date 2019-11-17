@@ -112,6 +112,12 @@
 			border: 0;
 			color: #888888;
 		}
+		.tooltip-inner {
+    min-width: 200px; /* the minimum width */
+		font-size:13px;
+		text-align: left;
+		background: #444444;
+}
 	</style>
 </head>
 
@@ -123,7 +129,10 @@
 			<a href="/">
 			<div style="width:72px;height:24px;background:rgb(15, 20, 20);color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div></a>
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-2" style="text-align:right;">
+			<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Coming soon!<br>1. Pan zoom in images<br>2. Navigation in lidar<br>3. Faster loading in lidar<br>5. Class-wise color in lidar<br><br>Planned!<br>1. Sensor fusion support<br>2. Video support<br>3. Download dataset(limited)"></span>
+		</div>
+		<div class="col-md-1"></div>
 	</div>
 	<div class="row" style="margin-bottom:20px;">
 		<div class="col-md-3"></div>
@@ -238,5 +247,10 @@
 		<div class="col-md-1"></div>
 	</div>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 
 </html>
