@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hivemind - View Publicly Accessible 3D Point Clouds</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul.navbar-nav li a {
+			height: 64px;
+			line-height: 32px;
+		}
+
+		.navbar-header a {
+			height: 64px;
+			line-height: 32px;
+			color: #FFFFFF;
+		}
+
+		* {
+			font-size: 15px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		br {
+			line-height: 27px;
+		}
+
+		body {
+			background-color: rgb(250, 250, 255)
+		}
+
+		tbody tr {
+			background-color: white;
+		}
+
+		td {
+			color: black;
+			font-size: 13px;
+			background: #FFFFFF;
+		}
+
+		td a {
+			color: black;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		td a:hover {
+			color: #133345;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		td a:active {
+			color: #133345;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		tr td:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th {
+			font-size: 12px;
+		}
+	</style>
+</head>
+
+<body style="margin:0; padding:0">
+	<div class="bar" style="height:0px; width:100%; background-color:rgb(15, 20, 20);margin-bottom:50px"></div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<a href="/ml-dataset-viewer">
+				<div style="width:72px;height:24px;background:rgb(15, 20, 20);color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div>
+			</a>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:20px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h1 style="margin-bottom:0px;">Berkley Deep Drive (BDD100K)</h1>
+			<p>Machine learning dataset viewer</p>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<p>The dataset contains over 100k videos of driving experience, each running 40 seconds at 30 frames per second. The total image count is 800 times larger than Baidu ApolloScape (released March 2018), 4,800 times larger than Mapillary and 8,000 times larger than KITTI.
+				<br><br>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>SCENE NAME</th>
+						<th>OVERVIEW</th>
+						<th>TOTAL FRAMES</th>
+						<th>TOTAL LABELS</th>
+						<th>TOTAL TRACKS</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</body>
+
+</html>

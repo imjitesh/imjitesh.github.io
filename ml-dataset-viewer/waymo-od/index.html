@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hivemind - View Publicly Accessible 3D Point Clouds</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		ul.navbar-nav li a {
+			height: 64px;
+			line-height: 32px;
+		}
+
+		.navbar-header a {
+			height: 64px;
+			line-height: 32px;
+			color: #FFFFFF;
+		}
+
+		* {
+			font-size: 15px;
+			margin: 0;
+			text-decoration: none;
+		}
+
+		br {
+			line-height: 27px;
+		}
+
+		body {
+			background-color: rgb(250, 250, 255)
+		}
+
+		tbody tr {
+			background-color: white;
+		}
+
+		td {
+			color: black;
+			font-size: 13px;
+			background: #FFFFFF;
+		}
+
+		td a {
+			color: black;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		td a:hover {
+			color: #133345;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		td a:active {
+			color: #133345;
+			font-size: 12px;
+			text-decoration: none;
+		}
+
+		tr td:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th:not(:first-child) {
+			text-align: center;
+		}
+
+		tr th {
+			font-size: 12px;
+		}
+	</style>
+</head>
+
+<body style="margin:0; padding:0">
+	<div class="bar" style="height:0px; width:100%; background-color:rgb(15, 20, 20);margin-bottom:50px"></div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<a href="/ml-dataset-viewer">
+				<div style="width:72px;height:24px;background:rgb(15, 20, 20);color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div>
+			</a>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:20px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h1 style="margin-bottom:0px;">Waymo Open Dataset</h1>
+			<p>Machine learning dataset viewer</p>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<p>The Waymo Open Dataset currently contains lidar and camera data from 1,000 segments (20s each). 1,000 segments of 20s each, collected at 10Hz (200,000 frames) in diverse geographies and conditions.
+				<br><br>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-8">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>SCENE NAME</th>
+						<th>OVERVIEW</th>
+						<th>TOTAL FRAMES</th>
+						<th>TOTAL LABELS</th>
+						<th>RANGE [0m,35m)</th>
+						<th>RANGE [35m,50m)</th>
+						<th>RANGE [35m,+INF)</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href='segment-1208303279778032257' target='blank' style='font-weight:800;'>segment-1208303279778032257</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>7648</td>
+
+						<td>4329</td>
+						<td>1715</td>
+						<td>1604</td>
+					</tr>
+					<tr>
+						<td><a href='segment-10206293520369375008' target='blank' style='font-weight:800;'>segment-10206293520369375008</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>2883</td>
+
+						<td>1200</td>
+						<td>731</td>
+						<td>952</td>
+					</tr>
+					<tr>
+						<td><a href='segment-10241508783381919015' target='blank' style='font-weight:800;'>segment-10241508783381919015</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>15655</td>
+
+						<td>6374</td>
+						<td>4224</td>
+						<td>5057</td>
+					</tr>
+					<tr>
+						<td><a href='segment-10500357041547037089' target='blank' style='font-weight:800;'>segment-10500357041547037089</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>30644</td>
+
+						<td>12332</td>
+						<td>7210</td>
+						<td>11102</td>
+					</tr>
+					<tr>
+						<td><a href='segment-10526338824408452410' target='blank' style='font-weight:800;'>segment-10526338824408452410</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>4538</td>
+
+						<td>2388</td>
+						<td>831</td>
+						<td>1319</td>
+					</tr>
+					<tr>
+						<td><a href='segment-10724020115992582208' target='blank' style='font-weight:800;'>segment-10724020115992582208</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>3703</td>
+
+						<td>2386</td>
+						<td>553</td>
+						<td>764</td>
+					</tr>
+					<tr>
+						<td><a href='segment-11004685739714500220' target='blank' style='font-weight:800;'>segment-11004685739714500220</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>7570</td>
+
+						<td>3485</td>
+						<td>1824</td>
+						<td>2261</td>
+					</tr>
+					<tr>
+						<td><a href='segment-11119453952284076633' target='blank' style='font-weight:800;'>segment-11119453952284076633</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>5275</td>
+
+						<td>1285</td>
+						<td>1348</td>
+						<td>2642</td>
+					</tr>
+					<tr>
+						<td><a href='segment-11355519273066561009' target='blank' style='font-weight:800;'>segment-11355519273066561009</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>10939</td>
+
+						<td>3574</td>
+						<td>2094</td>
+						<td>5271</td>
+					</tr>
+					<tr>
+						<td><a href='segment-11623618970700582562' target='blank' style='font-weight:800;'>segment-11623618970700582562</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>3296</td>
+
+						<td>1592</td>
+						<td>854</td>
+						<td>850</td>
+					</tr>
+					<tr>
+						<td><a href='segment-12257951615341726923' target='blank' style='font-weight:800;'>segment-12257951615341726923</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>17447</td>
+
+						<td>5593</td>
+						<td>4007</td>
+						<td>7847</td>
+					</tr>
+					<tr>
+						<td><a href='segment-11799592541704458019' target='blank' style='font-weight:800;'>segment-11799592541704458019</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>14726</td>
+
+						<td>3128</td>
+						<td>4542</td>
+						<td>7056</td>
+					</tr>
+					<tr>
+						<td><a href='segment-12304907743194762419' target='blank' style='font-weight:800;'>segment-12304907743194762419</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>11465</td>
+
+						<td>5311</td>
+						<td>860</td>
+						<td>5294</td>
+					</tr>
+					<tr>
+						<td><a href='segment-12581809607914381746' target='blank' style='font-weight:800;'>segment-12581809607914381746</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>17796</td>
+
+						<td>7131</td>
+						<td>4555</td>
+						<td>6110</td>
+					</tr>
+					<tr>
+						<td><a href='segment-13519445614718437933' target='blank' style='font-weight:800;'>segment-13519445614718437933</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>10370</td>
+
+						<td>4804</td>
+						<td>2260</td>
+						<td>3306</td>
+					</tr>
+					<tr>
+						<td><a href='segment-14106113060128637865' target='blank' style='font-weight:800;'>segment-14106113060128637865</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>12666</td>
+
+						<td>6475</td>
+						<td>2629</td>
+						<td>3562</td>
+					</tr>
+					<tr>
+						<td><a href='segment-14143054494855609923' target='blank' style='font-weight:800;'>segment-14143054494855609923</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>10670</td>
+
+						<td>4251</td>
+						<td>2651</td>
+						<td>3768</td>
+					</tr>
+					<tr>
+						<td><a href='segment-14233522945839943589' target='blank' style='font-weight:800;'>segment-14233522945839943589</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>12881</td>
+
+						<td>6535</td>
+						<td>2556</td>
+						<td>3790</td>
+					</tr>
+					<tr>
+						<td><a href='segment-14753089714893635383' target='blank' style='font-weight:800;'>segment-14753089714893635383</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>9610</td>
+
+						<td>4543</td>
+						<td>1771</td>
+						<td>3296</td>
+					</tr>
+					<tr>
+						<td><a href='segment-15036582848618865396' target='blank' style='font-weight:800;'>segment-15036582848618865396</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>10361</td>
+
+						<td>4574</td>
+						<td>3181</td>
+						<td>2606</td>
+					</tr>
+					<tr>
+						<td><a href='segment-15374821596407640257' target='blank' style='font-weight:800;'>segment-15374821596407640257</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>4056</td>
+
+						<td>1626</td>
+						<td>852</td>
+						<td>1578</td>
+					</tr>
+					<tr>
+						<td><a href='segment-15445436653637630344' target='blank' style='font-weight:800;'>segment-15445436653637630344</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>199</td>
+						<td>2486</td>
+
+						<td>958</td>
+						<td>800</td>
+						<td>728</td>
+					</tr>
+					<tr>
+						<td><a href='segment-15533468984793020049' target='blank' style='font-weight:800;'>segment-15533468984793020049</a></td>
+						<th><a href='#'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span></a></th>
+						<td>198</td>
+						<td>15193</td>
+
+						<td>9197</td>
+						<td>3416</td>
+						<td>2580</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</body>
+
+</html>
