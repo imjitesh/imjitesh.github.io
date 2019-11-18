@@ -11,114 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<style type="text/css">
-		* {
-			font-size: 15px;
-			margin: 0;
-			text-decoration: none;
-		}
-
-		br {
-			line-height: 27px;
-		}
-
-		body {
-			background-color: rgb(250, 250, 255)
-		}
-
-		tbody tr {
-			background-color: white;
-		}
-
-		td {
-			color: black;
-			font-size: 13px;
-		}
-
-		td a {
-			color: black;
-			font-size: 12px;
-		}
-
-		td a:hover {
-			color: #133345;
-			font-size: 12px;
-			text-decoration: none;
-		}
-
-		tr td:not(:first-child) {
-			text-align: center;
-		}
-
-		tr th:not(:first-child) {
-			text-align: center;
-		}
-		tr th {
-			font-size: 12px;
-		}
-
-		.lidar-tag {
-			font-size: 11px;
-			padding-top: 3px;
-			border-radius: 2px;
-			background-color: #FFDDDD;
-			outline: none;
-			border: 0;
-			color: #888888;
-		}
-
-		.image-tag {
-			font-size: 11px;
-			padding-top: 3px;
-			border-radius: 2px;
-			background-color: #DDFFDD;
-			outline: none;
-			border: 0;
-			color: #888888;
-		}
-		.threedbox-tag {
-			font-size: 11px;
-			padding-top: 3px;
-			border-radius: 2px;
-			background-color: #DDDDFF;
-			outline: none;
-			border: 0;
-			color: #888888;
-		}
-		.twodbox-tag {
-			font-size: 11px;
-			padding-top: 3px;
-			border-radius: 2px;
-			background-color: #DDFFFF;
-			outline: none;
-			border: 0;
-			color: #888888;
-		}
-		.segment-tag {
-			font-size: 11px;
-			padding-top: 3px;
-			border-radius: 2px;
-			background-color: #FFDDFF;
-			outline: none;
-			border: 0;
-			color: #888888;
-		}
-		.video-tag {
-			font-size: 11px;
-			padding-top: 3px;
-			border-radius: 2px;
-			background-color: #FFFFDD;
-			outline: none;
-			border: 0;
-			color: #888888;
-		}
-		.tooltip-inner {
-    min-width: 200px; /* the minimum width */
-		font-size:13px;
-		text-align: left;
-		background: #444444;
-}
-	</style>
+	<link rel="stylesheet" href="/css/dataset.main.css">
 </head>
 
 <body style="margin:0; padding:0">
@@ -130,7 +23,7 @@
 			<div style="width:72px;height:24px;background:rgb(15, 20, 20);color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div></a>
 		</div>
 		<div class="col-md-2" style="text-align:right;">
-			<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Coming soon!<br>1. Pan zoom in images<br>2. Navigation in lidar<br>3. Faster loading in lidar<br>5. Class-wise color in lidar<br><br>Planned!<br>1. Sensor fusion support<br>2. Video support<br>3. Download dataset(limited)"></span>
+			<span class="glyphicon glyphicon-calendar" aria-hidden="true" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Coming soon!<br>1. Pan zoom in images<br>2. Navigation in lidar<br>3. Faster loading in lidar<br>4. Class-wise color in lidar<br><br>Planned!<br>1. Sensor fusion support<br>2. Video support<br>3. Download dataset(limited)<br>4. Dataset filter feature<br>5. Select annotations"></span>
 		</div>
 		<div class="col-md-1"></div>
 	</div>
@@ -225,7 +118,7 @@
 					</td>
 					</tr>
 					<tr>
-						<td><a href="pascal_voc" style="font-weight:800;">PASCAL VOC</a></td>
+						<td><a href="pascal-voc" style="font-weight:800;">PASCAL VOC</a></td>
 						<td>2012</td>
 						<td>PASCAL VOC (2012 version)...</td>
 						<td>
