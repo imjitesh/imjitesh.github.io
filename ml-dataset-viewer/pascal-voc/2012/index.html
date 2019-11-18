@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Hivemind - PASCAL VOC</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/2dbox.main.css">
+	<style>
+	</style>
+</head>
+<body style="overflow: hidden;">
+	<div class="top">
+		<div class="row" style="text-align:center; color:#FFFFFF;">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<h4 id="scene_id" style="font-weight:200;"></h4>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+	<div class="images" style="margin-top:10px;">
+	<div class="row" style="text-align:center; color:#FFFFFF;">
+		<div class="col-md-1"></div>
+		<div class="col-md-10">
+			<div id="intro">
+				<canvas id="myCanvas">
+		</canvas>
+			</div>
+		</div>
+		<div class="col-md-1"></div>
+	</div>
+</div>
+	<div class="overlay" style="padding-left:4%;padding-right:4%;">
+		<div style="float:left;">
+			<br><br>
+			<a href="#" class="myButton">1</a>
+			<a href="#" class="myButton">2</a>
+			<a href="#" class="myButton">3</a>
+
+		</div>
+		<div style="float:right;">
+			<br><br>
+			<a href="#" class="myButton">-</a>
+			<a href="#" class="myButton">B</a>
+			<a href="#" class="myButton">+</a>
+		</div>
+		<br><br><br><br>
+		<p style="color:#FFFFFF;" id="frame-info"></p>
+		<div class="progress">
+			<div class="progress-bar" id="cur-frame-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+			<div class="progress-bar" id="load-frame-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+		</div>
+	</div>
+	<script type="text/javascript" src="/js/2dbox.main.js"></script>
+</body>
+</html>
