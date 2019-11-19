@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title>Jitesh Motwani - India & International Solar Alliance</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- Load d3.js and the geo projection plugin -->
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	<script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/dataset.main.css">
+	<style type="text/css">
+		#mapid {
+			height: 500px;
+			width: 100%;
+			background-color: rgb(250, 250, 250);
+		}
+	</style>
+</head>
+
+<body style="margin:0; padding:0">
+	<div class="bar" style="height:0px; width:100%; background-color:rgb(15, 20, 20);margin-bottom:50px"></div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<a href="/">
+				<div style="width:72px;height:24px;background:#133345;color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;display: inline-block;margin-right:0px;">Go Back</div>
+			</a>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h2>India & Its Power Plants</h2>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h3>Motivation</h3>
+			<span style="font-size:17px;">
+				I’ve been learning about web scraping and data visualization mainly through articles published on medium, and while I’ve found dozens of articles that give a quick intro to web scraping, very few go beyond that.
+				<br><br>
+				I hope to provide suggestions on how to find data within a site’s html source code, how to scrape multiple pages and collect data, and what to do once one actually has the data she wants.
+			</span>
+			<br><br><br><br><br>
+			<h3>Topic</h3>
+			<span style="font-size:17px;">
+				I started following the renewed interest of the 2014-elect Government of India in Solar Power and how this free and clean energy can power the India in 21st century.
+				Unlike its predecessors the government aimed for steep target of 100GW of solar capacity by 2022.
+				<br><br>
+				I was dragged into this and wanted to realise this target with data. Thank you to Hans Rosling I didnt have to reinvent it just gather data a learn a bit of D3.js.
+				<br><br>
+				<div class="row">
+					<div class="col-md-4">
+						<div style="width:20px; height:13px; background:#CCCCCC;display: inline-block;margin-right:5px;"></div>Coal
+						<br><br>
+						<div style="width:20px; height:13px; background:#FF0000;display: inline-block;margin-right:5px;"></div>Oil
+						<br><br>
+						<div style="width:20px; height:13px; background:#FFA500;display: inline-block;margin-right:5px;"></div>Gas
+						<br><br>
+					</div>
+					<div class="col-md-4">
+						<div style="width:20px; height:13px; background:#00FFFF;display: inline-block;margin-right:5px;"></div>Hydro
+						<br><br>
+						<div style="width:20px; height:13px; background:#FFFF33;display: inline-block;margin-right:5px;"></div>Solar
+						<br><br>
+						<div style="width:20px; height:13px; background:#0000FF;display: inline-block;margin-right:5px;"></div>Wind
+						<br><br>
+					</div>
+					<div class="col-md-4">
+						<div style="width:20px; height:13px; background:#000F0F;display: inline-block;margin-right:5px;"></div>Geothermal
+						<br><br>
+						<div style="width:20px; height:13px; background:#0F0F00;display: inline-block;margin-right:5px;"></div>Biomass
+						<br><br>
+						<div style="width:20px; height:13px; background:#00FF00;display: inline-block;margin-right:5px;"></div>Nuclear
+						<br><br>
+					</div>
+				</div>
+			</span>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h4>GEO SCATTER PLOT</h4>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-2"></div>
+		<div class="col-md-3">
+			<span style="font-size:17px;">Conventional Power Plants
+			</span>
+			<svg id="my_dataviz" width=100% height="400"></svg>
+		</div>
+		<div class="col-md-3">
+			<span style="font-size:17px;">Renewable Power Plants</span>
+			<svg id="my_dataviz2" width=100% height="400"></svg>
+		</div>
+		<div class="col-md-3">
+			<span style="font-size:17px;">Nuclear Power Plants</span>
+			<svg id="my_dataviz3" width=100% height="400"></svg>
+		</div>
+		<div class="col-md-2"></div>
+	</div>
+	<script src="/js/d3.viz.js">
+	</script>
+</body>
+</html>
