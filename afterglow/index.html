@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+    Video Classification Platform
+    </title>
+    <head>
+      <link href="https://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+      <!-- If you'd like to support IE8 -->
+      <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+      @import url('https://fonts.googleapis.com/css?family=Roboto');
+      *{
+      margin:0;
+      padding:0;
+      font-family: 'Roboto', sans-serif;
+      }
+      a{
+      text-decoration: none;
+      color: #000;
+      }
+      a:hover{
+      text-decoration: none;
+      color: #000;
+      cursor:pointer;
+      }
+      .video-js .vjs-big-play-button {
+      top: 150px;
+      left: 50%;
+      }
+      #my-video{
+      margin-top:10px;
+      }
+      #ticker{
+      display:inline-block;
+      }
+      #labels ul li{
+      padding:10px;
+      background:#ccddff;
+      display: inline-block;
+      font-size:20px;
+      margin:10px;
+      border-radius:5px;
+      cursor:pointer;
+      color:#002b80;
+      -webkit-transition: background 0.3s, color 0.3s;
+      }
+      #labels ul li:hover{
+      background:#002b80;
+      color:#ffffff;
+      }
+      #labels ul li.selected{
+      background:#002b80;
+      color:#ffffff;
+      }
+      #ticker{
+      background:#FFF;
+      height:350px;
+      display: inline-block;
+      overflow-y: scroll;
+      margin-top:10px;
+      }
+      table{
+      width:98%;
+      
+      }
+      table, th, td {
+      border: 1px solid #BBB;
+      border-collapse: collapse;
+      text-align:center;
+      }
+      th, td {
+      padding: 10px;
+      }
+      tr td:first-child,
+      tr th:first-child{
+      min-width:250px;
+      text-align:left;
+      }
+      tr td:last-child,
+      tr th:last-child{
+      width:50px;
+      text-align:center;
+      }
+      .time_stamp{
+      cursor:pointer;
+      }
+      .dropbtn {
+      background-color: #FFF;
+      color: #001099;
+      padding: 10px;
+      font-size: 16px;
+      width:500px;
+      border: none;
+      text-align:left;
+      }
+      .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-left:30px;
+      }
+      .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 500px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      }
+      .dropdown-content a {
+      color: black;
+      padding-left:10px;
+      padding-top:0px;
+      height:40px;
+      line-height:40px;
+      text-decoration: none;
+      display: block;
+      font-size: 16px;
+      }
+      .dropdown-content a:hover {background-color: #ddd}
+      .dropdown:hover .dropdown-content {
+      display: block;
+      }
+      .dropdown:hover .dropbtn {
+      background-color: rgb(250,250,250);
+      }
+      </style>
+    </head>
+    <body>
+      <div style="width:100%; height:60px; background:#001099; color:#FFF;padding-left:10px;padding-top:10px;line-height:auto;font-size:20px;">
+        <a href="/" style="cursor:pointer;color:#FFF;">Video Classification Platform</a>
+        <div class="dropdown">
+          <input type="text" class="form-control" id="videoID" style="width:300px;">
+        </div>
+        <button type="button" class="btn btn-primary btn-md load-video-but" style="margin-left:50px;margin-top:3px;">Load video</button>
+        <button type="button" class="btn btn-success btn-md instructions-but" data-toggle="modal" data-target="#myQuality" style="margin-left:50px;margin-top:3px;">Perform Quality Check</button>
+        <button type="button" class="btn btn-warning btn-md instructions-but" data-toggle="modal" data-target="#myModal" style="float:right;margin-right:10px;margin-top:3px;">Configure Labels</button>
+      </div>
+      <video style="width:100%; height:360px" id="my-video" class="video-js" controls preload="auto"
+        data-setup='{ "playbackRates": [0.5, 1, 1.5, 2] }'>
+        <source src="https://s3-ap-southeast-1.amazonaws.com/playmentproduction/output/1.mp4" type='video/mp4'>
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+        </p>
+      </video>
+      <div class="row">
+        <div id="labels" class="col-sm-7" style="">
+          <ul style="height:280px;padding-left:20px;">
+            <li>Event start</li>
+            <li>Event stop</li>
+          </ul>
+          <hr>
+          <div class="form" style="text-align:center;">
+            <a id="download_output"><button type="button" class="btn btn-success btn-lg">Submit the output</button></a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-info btn-lg clear">Clear the output</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="button" class="btn btn-warning btn-lg make-clip">Make the clip</button>
+          </div>
+        </div>
+        <div id="ticker" class="col-sm-5" >
+          <table id="dataTable">
+            <tr>
+              <th>Label</th>
+              <th><a data-toggle='tooltip' title='Click on time-stamp to move to that time' data-placement="bottom">Time-stamp</a></th>
+              <th>Remove</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Configure Labels</h4>
+            </div>
+            <div class="modal-body">
+              <input type="text" class="form-control" id="labelInput" style="width:300px;">
+              <button type="button" id="addLabel" class="btn btn-primary btn-md" style="margin-left:50px;margin-top:3px;">Add Label</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="myQuality" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Load Data here</h4>
+            </div>
+            <div class="modal-body">
+              <textarea style="width:100%; height:500px;" placeholder="Paste your csv output here..." id="pastedData"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" >Clear</button>
+              <button type="button" class="btn btn-default loadDataButton" data-dismiss="modal">Load</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script src="https://vjs.zencdn.net/6.6.3/video.js"></script>
+      <script type="text/javascript" src="/js/afterglow.main.js">
+        </script>
+      </body>
+    </html>
