@@ -50,45 +50,80 @@
 		<div class="col-md-6">
 			<h4>CURRENT STATUS</h4>
 			<span style="font-size:17px;">
-			The coronavirus outbreak has sickened more than 43,000 people in Asia, according to statements from health officials. Many other cases are suspected but not confirmed. As of Monday evening, at least 1018 people have died, all but two in mainland China.
+			The coronavirus outbreak has sickened more than 43,000 people in Asia, according to statements from health officials.
+			Many other cases are suspected but not confirmed.
+			As of Tuesday evening, at least 1018 people have died, all but two in mainland China.
+		</span>
+			<br><br>
+			<div class="row">
+				<div class="col-md-4">
+					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;">
+						<span style="color:white;">Total Confirmed</span>
+						<span style="color:red;font-weight:600;font-size:52px;" id="confirmed-ticker">43,138</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;">
+						<span style="color:white;">Total Deaths</span><br>
+						<span style="color:white;font-weight:600;font-size:52px;" id="death-ticker">1,018</span>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;">
+						<span style="color:white;">Total Recovered</span><br>
+						<span style="color:green;font-weight:600;font-size:52px;" id="recover-ticker">4,294</span>
+					</div>
+				</div>
+			</div>
+
 			<br><br>
 			<h4>WHAT HAPPENED?</h4>
-			The outbreak is believed to have began in a seafood and poultry market in Wuhan, a city of 11 million people in central China. The virus is readily transmitted from person to person, scientists believe. But how lethal the virus is and and whether it can be contained is unclear.
+			<span style="font-size:17px;">
+			The outbreak is believed to have began in a seafood and poultry market in Wuhan, a city of 11 million people in central China.
+			<br><br>
+			It is a difficult place to contain an outbreak when its population is more than that of New York City.
+
+			On an average day, 3,500 passengers take direct flights from Wuhan to cities in other countries.
+			The virus is readily transmitted from person to person, scientists believe. But how lethal the virus is and and whether it can be contained is unclear.
 			<br><br>
 			The below choropleth gives a timeline of the spread of the virus since it was first identified.
 			<br><br>
-			<select name="case_type">
-				<option value="Confirmed">Confirmed</option>
-  <option value="Recovered">Recovered</option>
-  <option value="Deaths">Deaths</option>
-</select>
+
 		</span>
 		</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
 		<div class="col-md-2"></div>
-		<div class="col-md-1" style="text-align:left;">
-			<span style="background:#133345;color:white;text-align:center;font-weight:200;border-radius:4px;line-height:22px; padding:5px;">2020-01-21</span>
-		</div>
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<div class="slidecontainer">
 				<input type="range" min="1" max="10" value="1" class="slider" id="timeRange" onchange="updateSlider(this.value)">
 			</div>
-		</div>
-		<div class="col-md-1" style="text-align:right;">
-			<span style="background:#133345;color:white;text-align:center;font-weight:200;border-radius:4px;line-height:22px; padding:5px;">2020-02-11</span>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
 		<div class="col-md-2"></div>
 		<div class="col-md-8">
-			<svg id="my_dataviz" width="100%" height="650">
+			<svg id="my_dataviz" width="100%" height="600">
 			</svg>
 		</div>
 		<div class="col-md-2"></div>
 	</div>
+	<div class="row" style="margin-bottom:30px;">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h4>HOW CONTAGIOUS IS THE VIRUS?</h4>
+			<span style="font-size:17px;">
+			The scale of an outbreak depends on how quickly and easily a virus is transmitted from person to person.
+			While research has just begun, scientists have estimated that each person with the new coronavirus could infect somewhere between 1.5 and 3.5 people without effective containment measures.
+			<br><br>
+			If each person infected with the new coronavirus infects two to three others, that may be enough to sustain and accelerate an outbreak, if nothing is done to reduce it.
+		</span>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
 	<script>
 		// The svg
 		var svg = d3.select("svg"),
@@ -307,6 +342,7 @@ function updateSlider(currentTime){
 			}
 
 			// Draw the map
+			d3.selectAll("svg > *").remove();
 			svg.append("g")
 				.selectAll("path")
 				.data(topo.features)
