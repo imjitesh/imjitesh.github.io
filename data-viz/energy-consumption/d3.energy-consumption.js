@@ -1,7 +1,6 @@
 // set the dimensions and margins of the graph
 var actualWidth = document.getElementById("my_dataviz").clientWidth;
 var actualHeight = document.getElementById("my_dataviz").clientHeight;
-console.log(actualWidth);
 var margin = {
     top: 10,
     right: 0,
