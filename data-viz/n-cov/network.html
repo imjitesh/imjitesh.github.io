@@ -69,16 +69,6 @@ var a = {id: "a"},
    "time": 2,
    "node1": c,
    "node2": g
- },
- {
-   "time": 2,
-   "node1": a,
-   "node2": h
- },
- {
-   "time": 2,
-   "node1": a,
-   "node2": i
  }
 ]
     nodes = [a],
@@ -89,8 +79,8 @@ var a = {id: "a"},
 
 
 var simulation = d3.forceSimulation(nodes)
-    .force("charge", d3.forceManyBody().strength(-20))
-    .force("link", d3.forceLink(links).distance(30))
+    .force("charge", d3.forceManyBody().strength(-10))
+    .force("link", d3.forceLink(links).distance(20))
     //.force("x", d3.forceX())
     //.force("y", d3.forceY())
     //.alphaTarget(1)
