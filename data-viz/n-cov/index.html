@@ -22,6 +22,11 @@
 	<link rel="stylesheet" href="../../css/dataset.main.css">
 	<link href="../../css/c3.min.css" rel="stylesheet">
 	<style type="text/css">
+	@media screen and (max-width: 990px) {
+		div.row {
+			margin: 0 0;
+		}
+	}
 		#mapid {
 			height: 500px;
 			width: 100%;
@@ -34,6 +39,7 @@
   color: #fff;
   border-radius: 2px;
 }
+
 	</style>
 </head>
 
@@ -60,28 +66,28 @@
 		<div class="col-md-6">
 			<h4>CURRENT STATUS</h4>
 			<span style="font-size:17px;">
-			The coronavirus outbreak has sickened more than 43,000 people in Asia, according to statements from health officials.
+			The coronavirus outbreak has sickened more than 100,000 people on the globe, according to statements from health officials.
 			Many other cases are suspected but not confirmed.
-			As of Tuesday evening, at least 1018 people have died, all but two in mainland China.
+			As of March 12, 2020, at least 4600 people have died.
 		</span>
 			<br><br>
 			<div class="row">
 				<div class="col-md-4">
-					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;">
-						<span style="color:white;">Total Confirmed</span>
-						<span style="color:red;font-weight:600;font-size:52px;" id="confirmed-ticker">43,138</span>
+					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;margin-bottom:10px;">
+						<span style="color:white;">Total Confirmed</span><br>
+						<span style="color:red;font-weight:600;font-size:3.2vw;" id="confirmed-ticker" class="ticker"></span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;">
+					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;margin-bottom:10px;">
 						<span style="color:white;">Total Deaths</span><br>
-						<span style="color:white;font-weight:600;font-size:52px;" id="death-ticker">1,018</span>
+						<span style="color:white;font-weight:600;font-size:3.2vw;" id="death-ticker" class="ticker"></span>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;">
+					<div style="width:100%; height:104px; background:#133345;text-align:center;font-weight:200;padding-top:5px;margin-bottom:10px;">
 						<span style="color:white;">Total Recovered</span><br>
-						<span style="color:green;font-weight:600;font-size:52px;" id="recover-ticker">4,294</span>
+						<span style="color:green;font-weight:600;font-size:3.2vw;" id="recover-ticker" class="ticker"></span>
 					</div>
 				</div>
 			</div>
@@ -259,6 +265,30 @@
 			}
 		}
 
+		function CommaFormatted(amount) {
+	var delimiter = ","; // replace comma if desired
+	var a = amount.split('.',2)
+	var d = a[1];
+	var i = parseInt(a[0]);
+	if(isNaN(i)) { return ''; }
+	var minus = '';
+	if(i < 0) { minus = '-'; }
+	i = Math.abs(i);
+	var n = new String(i);
+	var a = [];
+	while(n.length > 3) {
+		var nn = n.substr(n.length-3);
+		a.unshift(nn);
+		n = n.substr(0,n.length-3);
+	}
+	if(n.length > 0) { a.unshift(n); }
+	n = a.join(delimiter);
+	if(d.length < 1) { amount = n; }
+	else { amount = n + '.' + d; }
+	amount = minus + amount;
+	return amount;
+}
+
 		// Load external data and boot
 		d3.queue()
 			.defer(d3.json, "https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson")
@@ -361,14 +391,14 @@
 			)
 			.await(ready);
 
-let currentTimeStamp = '2020-01-21 17:40:23.609388';
+let epochTimeStamp = '2020-01-21 17:40:23.609388';
 
 function updateSlider(currentTime){
-	currentTimeStamp = timestamps[currentTime-1];
-	$('#selectedTime').html("Date: " + currentTimeStamp.split(' ')[0]);
+	epochTimeStamp = timestamps[currentTime-1];
+	$('#selectedTime').html("Date: " + epochTimeStamp.split(' ')[0]);
 	for (var reg in ncov_timeline_data) {
 		for (var time in ncov_timeline_data[reg]) {
-			if (time == currentTimeStamp) {
+			if (time == epochTimeStamp) {
 				d3data.set(reg, +ncov_timeline_data[reg][time]["confirmed"])
 			}
 		}
@@ -380,13 +410,23 @@ function updateSlider(currentTime){
 
 		function ready(error, topo){
 			$("#timeRange").attr("max", timestamps.length);
+			let currentTimeStamp = timestamps[timestamps.length-1];
+			let totalConfirmed = 0; totalRecovered=0; totalDeaths=0;
 			for (var reg in ncov_timeline_data) {
 				for (var time in ncov_timeline_data[reg]) {
-					if (time == currentTimeStamp) {
+					if (time == epochTimeStamp) {
 						d3data.set(reg, +ncov_timeline_data[reg][time]["confirmed"])
+					}
+					if(time == currentTimeStamp){
+						totalConfirmed += ncov_timeline_data[reg][time]["confirmed"];
+						totalRecovered += ncov_timeline_data[reg][time]["recovered"];
+						totalDeaths += ncov_timeline_data[reg][time]["death"];
 					}
 				}
 			}
+			$("#confirmed-ticker").text(totalConfirmed);
+			$("#recover-ticker").text(totalRecovered);
+			$("#death-ticker").text(totalDeaths);
 			let mouseOver = function(d) {
 				d3.selectAll(".Country")
 					.transition()

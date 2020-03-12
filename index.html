@@ -12,6 +12,19 @@
 	<!-- Latest compiled JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 	<style type="text/css">
+	@media screen and (max-width: 991px) {
+		div.row {
+			margin: 0 0;
+		}
+		div.subtext-time{
+			text-align: left!important;
+			line-height:20px!important;
+			margin-bottom: 40px!important;
+		}
+		div.subtext-head{
+			text-align: left!important;
+		}
+	}
 		ul.navbar-nav li a {
 			height: 64px;
 			line-height: 32px;
@@ -109,7 +122,7 @@
 				<div style="width:72px;height:24px;background:#355567;color:white;text-align:center;font-weight:200;border-top-left-radius:5px;border-bottom-left-radius:5px;line-height:22px;float:left;margin-right:0px;">Updated</div>
 				<div id="date"
 					style="width:auto;padding-left:10px;padding-right:10px;height:24px;background:white;color:rgb(15,20,20);text-align:center;font-weight:200;border-top-right-radius:5px;border-bottom-right-radius:5px;line-height:22px;display:inline-block;">
-					February 2020</div>
+					{Month} {Year}</div>
 				<script type="text/javascript">
 					window.onload = function() {
 						var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];;
@@ -130,7 +143,7 @@
 		</div>
 		<div class="row" style="margin-bottom:30px;">
 			<div class="col-md-2"></div>
-			<div class="col-md-1" style="text-align:right;font-size:17px;font-weight:200">Info</div>
+			<div class="col-md-1 subtext-head" style="text-align:right;font-size:17px;font-weight:200">Info</div>
 			<div class="col-md-6" style="color:#FFFFFF;font-size:17px;font-weight:200">
 				I'm Jitesh Motwani and I love to solve problems. Whether it’s finding the most elegant way to write a line of code or figuring out which camera lens to use at what time and what location, I love the challenge of finding a way and discovering solutions.
 				<br><br>
@@ -144,7 +157,7 @@
 		</div>
 		<div class="row" style="margin-bottom:30px;">
 			<div class="col-md-2"></div>
-			<div class="col-md-1" style="text-align:right;font-size:17px;font-weight:200">Contact</div>
+			<div class="col-md-1 subtext-head" style="text-align:right;font-size:17px;font-weight:200">Contact</div>
 			<div class="col-md-6" style="color:#FFFFFF;font-size:17px;font-weight:800">
 				<a href="https://twitter.com/ijiteshmotwani" style="margin-right:20px;color:#AAAAAA;">Twitter</a>
 				<a href="https://github.com/imjitesh" style="margin-right:20px;color:#AAAAAA;">Github</a>
@@ -155,7 +168,7 @@
 		</div>
 		<div class="row" style="margin-bottom:30px;">
 			<div class="col-md-2"></div>
-			<div class="col-md-1" style="text-align:right;font-size:17px;font-weight:200">Merch</div>
+			<div class="col-md-1 subtext-head" style="text-align:right;font-size:17px;font-weight:200">Merch</div>
 			<div class="col-md-6" style="color:#FFFFFF;font-size:17px;font-weight:800">
 				<a href="/shop" style="margin-right:20px;color:#AAAAAA;">Movie Print</a>
 			</div>
@@ -175,9 +188,9 @@
 	<div class="row" style="margin-bottom:10px;margin-top:100px;color:rgb(15, 20, 20);">
 		<div class="col-md-3"></div>
 		<div class="col-md-4">
-			<h2 style="font-weight:900;font-size:36px;">Self Driving Car Engineer</h2>
+			<h2 style="font-weight:900;font-size:36px;">Self Driving Cars</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">Udacity, 2019 - today</div>
+		<div class="col-md-2 subtext-time" style="line-height:80px;text-align:right;">Udacity, 2019 - today</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
@@ -216,10 +229,10 @@
 	<!--################Here starts the Hivemind stuff ####################-->
 	<div class="row" style="margin-bottom:10px;color:rgb(15, 20, 20);">
 		<div class="col-md-3"></div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<h2 style="font-weight:900;font-size:36px;">Hivemind</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">My Macbook, 2019 - today</div>
+		<div class="col-md-3 subtext-time" style="line-height:80px;text-align:right;">My Mac, '19 - today</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
@@ -254,10 +267,10 @@
 	<!--################Here stars the Playment stuff ####################-->
 	<div class="row" style="margin-bottom:10px;color:rgb(15, 20, 20);">
 		<div class="col-md-3"></div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<h2 style="font-weight:900;font-size:36px;">Playment</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">Bangalore, 2017 - today</div>
+		<div class="col-md-3 subtext-time" style="line-height:80px;text-align:right;">Bangalore, '17 - today</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
@@ -317,10 +330,10 @@
 
 	<div class="row" style="margin-bottom:10px;color:rgb(15, 20, 20);">
 		<div class="col-md-3"></div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			<h2 style="font-weight:900;font-size:36px;">Visualflux</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">My Macbook, 2016 - 2017</div>
+		<div class="col-md-3 subtext-time" style="line-height:80px;text-align:right;">My Mac, '16 - '17</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
@@ -362,7 +375,7 @@
 		<div class="col-md-4">
 			<h2 style="font-weight:900;font-size:36px;">United Technologies</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">Bangalore, 2015 - 2017</div>
+		<div class="col-md-2 subtext-time" style="line-height:80px;text-align:right;">Bangalore, '15 - '17</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
@@ -408,7 +421,7 @@
 		<div class="col-md-4">
 			<h2 style="font-weight:900;font-size:36px;">Data Visualization</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">My Macbook, 2015 - today</div>
+		<div class="col-md-2 subtext-time" style="line-height:80px;text-align:right;">My Mac, '15 - today</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
@@ -480,7 +493,7 @@
 		<div class="col-md-4">
 			<h2 style="font-weight:900;font-size:36px;">Photography</h2>
 		</div>
-		<div class="col-md-2" style="line-height:80px;text-align:right;">Pale blue dot, 2011 - today</div>
+		<div class="col-md-2 subtext-time" style="line-height:80px;text-align:right;">Earth, '11 - today</div>
 		<div class="col-md-3"></div>
 	</div>
 	<div class="row" style="margin-bottom:30px;">
