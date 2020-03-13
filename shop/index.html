@@ -13,6 +13,34 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/css/dataset.main.css">
   <style>
+  @media screen and (max-width: 991px) {
+		div.row {
+			margin: 0 0;
+		}
+    .col-md-2 {
+    width: 25vw!important;
+    margin:0!important;
+  }
+  .zero-marg{
+    width:0!important;
+    padding:0!important;
+  }
+  }
+
+  @media screen and (max-width: 750px) {
+		div.row {
+			margin: 0 0;
+		}
+    .col-md-2 {
+    width: 90vw!important;
+    margin-left:5vw!important;
+    margin-right:5vw!important;
+  }
+  .zero-marg{
+    width:0!important;
+    padding:0!important;
+  }
+  }
     .panel-primary {
       border: 0;
       background: #EFEFEF;
@@ -66,7 +94,7 @@
       <div class="col-md-2"></div>
     </div>
     <div class="row" style="margin-bottom:30px;">
-      <div class="col-md-2"></div>
+      <div class="col-md-2 zero-marg"></div>
       <div class="col-md-2">
         <div class="panel panel-primary">
           <div class="panel-body">
@@ -99,7 +127,7 @@
           <div class="panel-footer">&#8377;249.00</div>
         </div>
       </div>
-      <div class="col-md-2">
+      <div class="col-md-2 zero-marg">
       </div>
     </div>
     <div class="row">
