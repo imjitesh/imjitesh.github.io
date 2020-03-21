@@ -247,8 +247,18 @@
 			"BEL": {},
 			"ESP": {},
 			"SWE": {},
-			"FIN": {}
+			"FIN": {},
+			"IRN":{},
+			"EGY":{},
+			"KWT":{},
+			"OMN":{},
+			"ISR":{},
+			"AFG":{},
+			"IRQ":{},
+			"ISL":{}
 		};
+
+		updated_locations = [];
 
 		function createData(code, data, loc, timestamp) {
 			//console.log(code, data, loc, timestamp);
@@ -264,6 +274,8 @@
 				};
 			}
 		}
+
+		console.log()
 
 		function CommaFormatted(amount) {
 	var delimiter = ","; // replace comma if desired
@@ -301,11 +313,10 @@
 							timestamps.push(timestamp);
 						}
 						if (["anhui", "beijing", "chongqing", "fujian", "gansu", "guangdong", "guangxi", "guizhou", "hainan", "hebei", "heilongjiang", "henan", "hongkong", "hubei", "hunan", "neimenggu", "jiangsu", "jiangxi", "jilin", "liaoning", "macau",
-								"ningxia", "qinghai", "shaanxi", "shandong", "shanghai", "shanxi", "sichuan", "tianjin", "xinjiang", "xizang", "yunnan", "zhejiang"
-							].indexOf(loc) > -1) {
+								"ningxia", "qinghai", "shaanxi", "shandong", "shanghai", "shanxi", "sichuan", "tianjin", "xinjiang", "xizang", "yunnan", "zhejiang","taiwan"].indexOf(loc) > -1) {
 							createData("CHN", data, loc, timestamp)
 						}
-						if (["japan"].indexOf(loc) > -1) {
+						if (["japan","diamond princess"].indexOf(loc) > -1) {
 							createData("JPN", data, loc, timestamp)
 						}
 						if (["thailand"].indexOf(loc) > -1) {
@@ -347,7 +358,7 @@
 						if (["cambodia"].indexOf(loc) > -1) {
 							createData("KHM", data, loc, timestamp)
 						}
-						if (["us"].indexOf(loc) > -1) {
+						if (["us","arizona","illinois","washington","california","wisconsin","massachusetts","oregon","texas","florida","rhode island","new york","new hampshire","district of columbia","north carolina","georgia usa","nebraska","new jersey","tennessee","utah","nevada","maryland","colorado","pennsylvania","indiana","minnesota","alabama","alaska","arkansas","connecticut","delaware","hawaii","idaho","iowa","kansas","kentucky","louisiana","maine","michigan","mississippi","missouri","montana","new mexico","north dakota","ohio","oklahoma","south carolina","south dakota","vermont","virginia","west virginia","wyoming","u.s. virgin islands"].indexOf(loc) > -1) {
 							createData("USA", data, loc, timestamp)
 						}
 						if (["germany"].indexOf(loc) > -1) {
@@ -356,7 +367,7 @@
 						if (["sri lanka"].indexOf(loc) > -1) {
 							createData("LKA", data, loc, timestamp)
 						}
-						if (["canada"].indexOf(loc) > -1) {
+						if (["canada","ontario","british columbia","quebec","alberta","manitoba","new brunswick","newfoundland and labrador","nova scotia","prince edward island","saskatchewan","northwest territories","nunavut","yukon"].indexOf(loc) > -1) {
 							createData("CAN", data, loc, timestamp)
 						}
 						if (["united arab"].indexOf(loc) > -1) {
@@ -386,8 +397,26 @@
 						if (["finland"].indexOf(loc) > -1) {
 							createData("FIN", data, loc, timestamp)
 						}
-						else{
-							createData("TBA", data, loc, timestamp)
+						if (["iran"].indexOf(loc) > -1) {
+							createData("IRN", data, loc, timestamp)
+						}
+						if (["kuwait"].indexOf(loc) > -1) {
+							createData("KWT", data, loc, timestamp)
+						}
+						if (["oman"].indexOf(loc) > -1) {
+							createData("OMN", data, loc, timestamp)
+						}
+						if (["israel"].indexOf(loc) > -1) {
+							createData("ISR", data, loc, timestamp)
+						}
+						if (["afghanistan"].indexOf(loc) > -1) {
+							createData("AFG", data, loc, timestamp)
+						}
+						if (["iraq"].indexOf(loc) > -1) {
+							createData("IRQ", data, loc, timestamp)
+						}
+						if (["iceland"].indexOf(loc) > -1) {
+							createData("ISL", data, loc, timestamp)
 						}
 					}
 				}
