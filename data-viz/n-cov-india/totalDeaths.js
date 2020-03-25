@@ -1,6 +1,7 @@
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 25, bottom: 30, left: 80},
-width = 1200 - margin.left - margin.right,
+
+var margin = {top: 40, right: 0, bottom: 30, left: 105},
+width = document.getElementById("my_dataviz1").offsetWidth - margin.left - margin.right,
 height = 450 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -24,7 +25,7 @@ var x3 = d3.scaleBand()
 .range([ 0, width ])
 .domain(myGroups)
 .padding(0.05);
-svg3.append("g")
+svg3.append("g").attr("class", "ticks")
 .style("font-size", 12)
 .attr("transform", "translate(0," + 0 + ")")
 .call(d3.axisTop(x3).tickSize(0))
@@ -35,7 +36,7 @@ var y3 = d3.scaleBand()
 .range([ height, 0 ])
 .domain(myVars)
 .padding(0.05);
-svg3.append("g")
+svg3.append("g").attr("class", "ticks")
 .style("font-size", 10)
 .call(d3.axisLeft(y3).tickSize(0))
 .select(".domain").remove()
