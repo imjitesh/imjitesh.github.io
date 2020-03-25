@@ -68,7 +68,7 @@ var mousemove2 = function(d) {
 tooltip2
   .html(d.value + " recovered cases")
   .style("left", (d3.mouse(this)[0]+70) + "px")
-  .style("top", (d3.mouse(this)[1]) + "px")
+  .style("top", (d3.mouse(this)[1]+10) + "px")
 }
 var mouseleave2 = function(d) {
 tooltip2
