@@ -58,7 +58,7 @@ var tooltip = d3.select("#my_dataviz1")
 // Three function that change the tooltip when user hover / move / leave a cell
 var mouseover = function(d) {
 tooltip
-  .style("opacity", 1);
+  .style("display", "block");
 d3.select(this)
   .style("stroke", "black")
   .style("opacity", 1);
@@ -71,7 +71,7 @@ tooltip
 }
 var mouseleave = function(d) {
 tooltip
-  .style("opacity", 0)
+  .style("display", "none");
 d3.select(this)
   .style("stroke", "none")
   .style("opacity", 0.8)

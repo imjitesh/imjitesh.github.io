@@ -49,7 +49,7 @@ var myColor2 = d3.scaleThreshold()
 //create a tooltip
 var tooltip2 = d3.select("#my_dataviz2")
 .append("div")
-.style("opacity", 0)
+.style("opacity", 1)
 .attr("class", "tooltip")
 .style("background-color", "white")
 .style("border", "solid")
@@ -60,7 +60,7 @@ var tooltip2 = d3.select("#my_dataviz2")
 // Three function that change the tooltip when user hover / move / leave a cell
 var mouseover2 = function(d) {
 tooltip2
-  .style("opacity", 1);
+  .style("display", "block");
 d3.select(this)
   .style("stroke", "black")
   .style("opacity", 1);
@@ -73,7 +73,7 @@ tooltip2
 }
 var mouseleave2 = function(d) {
 tooltip2
-  .style("opacity", 0)
+  .style("display", "none")
 d3.select(this)
   .style("stroke", "none")
   .style("opacity", 0.8)
