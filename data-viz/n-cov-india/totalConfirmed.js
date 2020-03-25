@@ -46,7 +46,7 @@ var myColor = d3.scaleThreshold()
 .range(d3.schemeBlues[9]);
 
 //create a tooltip
-var tooltip = d3.select("#my_dataviz")
+var tooltip = d3.select("#my_dataviz1")
 .append("div")
 .style("opacity", 0)
 .attr("class", "tooltip")

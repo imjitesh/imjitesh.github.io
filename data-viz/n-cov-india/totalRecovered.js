@@ -24,7 +24,7 @@ var x2 = d3.scaleBand()
 .range([ 0, width ])
 .domain(myGroups2)
 .padding(0.05);
-svg.append("g")
+svg2.append("g")
 .style("font-size", 12)
 .attr("transform", "translate(0," + 0 + ")")
 .call(d3.axisTop(x2).tickSize(0))
@@ -43,10 +43,10 @@ svg2.append("g")
 // Build color scale
 var myColor2 = d3.scaleThreshold()
   .domain([1, 2, 4, 8, 16, 32, 64, 128, 256])
-  .range(d3.schemeBlues[9]);
+  .range(d3.schemeGreens[9]);
 
 //create a tooltip
-var tooltip2 = d3.select("#my_dataviz")
+var tooltip2 = d3.select("#my_dataviz2")
 .append("div")
 .style("opacity", 0)
 .attr("class", "tooltip")
@@ -66,7 +66,7 @@ d3.select(this)
 }
 var mousemove2 = function(d) {
 tooltip2
-  .html(d.value + " total confirmed cases")
+  .html(d.value + " recovered cases")
   .style("left", (d3.mouse(this)[0]+70) + "px")
   .style("top", (d3.mouse(this)[1]) + "px")
 }
