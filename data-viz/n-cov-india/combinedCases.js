@@ -24,7 +24,7 @@ var z = d3.scaleOrdinal()
     .range(["rgb(33, 113, 181)", "rgb(116, 196, 118)", "rgb(173, 55, 31)"]);
 
 // load the csv and create the chart
-d3.csv("age-groups.csv", function(d, i, columns) {
+d3.csv("https://production-karona.s3.us-east-2.amazonaws.com/combined/compiled.csv", function(d, i, columns) {
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
