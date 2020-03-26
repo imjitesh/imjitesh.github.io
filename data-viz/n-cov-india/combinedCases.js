@@ -25,6 +25,10 @@ var z = d3.scaleOrdinal()
 
 // load the csv and create the chart
 d3.csv("https://production-karona.s3.us-east-2.amazonaws.com/combined/compiled.csv", function(d, i, columns) {
+  document.getElementById("confirmed-ticker").textContent = d.Confirmed;
+  document.getElementById("recover-ticker").textContent = d.Recovered;
+  document.getElementById("death-ticker").textContent = d.Deaths;
+  console.log();
   for (i = 1, t = 0; i < columns.length; ++i) t += d[columns[i]] = +d[columns[i]];
   d.total = t;
   return d;
@@ -107,13 +111,13 @@ d3.csv("https://production-karona.s3.us-east-2.amazonaws.com/combined/compiled.c
     .style("display", "none");
 
   tooltip.append("rect")
-    .attr("width", 60)
+    .attr("width", 80)
     .attr("height", 20)
     .attr("line-height",20)
     .attr("fill", "white")
-    .style("opacity", 0.5);
+    .style("opacity", 1);
 
   tooltip.append("text")
-    .attr("x", 30)
-    .attr("dy", "1.2em")
+    .attr("x", 40)
+    .attr("dy", "1.3em")
     .style("text-anchor", "middle")
