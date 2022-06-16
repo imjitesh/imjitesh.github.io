@@ -57,7 +57,7 @@ function init() {
   controls.autoForward = false;
   controls.dragToLook = false;*/
 
-  /*controls = new OrbitControls(camera, renderer.domElement);
+  controls = new OrbitControls(camera, renderer.domElement);
 
   controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
   controls.dampingFactor = 0.08;
@@ -78,7 +78,7 @@ function init() {
   // world
 
   //stats = new Stats();
-  //container.appendChild( stats.dom );*/
+  //container.appendChild( stats.dom );
 
   window.addEventListener('keypress', keyboard);
 
